@@ -8,3 +8,13 @@ Bab ini bertujuan untuk mengklarifikasi apa itu Machine Learning (ML), mengapa M
 
 ---
 
+
+
+\# Foobar
+
+
+
+Foobar is a Python library for dealing with word pluralization.
+
+
+
