@@ -51,57 +51,40 @@ Bab ini bertujuan untuk mengklarifikasi apa itu Machine Learning (ML), mengapa M
 ## **4. Jenis Sistem ML**
 * Diklasifikasikan berdasarkan kriteria:
     -   Pengawasan manusia (supervised, unsupervised, semisupervised, Reinforcement Learning).
+    - Kemampuan belajar secara bertahap (online vs batch learning).
+    - Metode generalisasi (instance-based vs model-based learning).
 
-Kemampuan belajar secara bertahap (online vs batch learning).
+* Kriteria ini tidak eksklusif dan dapat digabungkan.
+    - Supervised/Unsupervised Learning: 
+        - Supervised Learning: Data pelatihan berisi solusi yang diinginkan (label).
+        - Tugas umum: Klasifikasi (misalnya, filter spam) dan Regresi (memprediksi nilai numerik, misalnya, harga mobil).
+        - Predictors: Fitur yang digunakan untuk prediksi.
+        - Attribute vs Feature: Attribute adalah tipe data, feature adalah attribute + nilainya.
+        - Algoritma: k-NN, Regresi Linear/Logistik, SVM, Decision Trees, Random Forests, Neural Networks.
 
-Metode generalisasi (instance-based vs model-based learning).
+    - Unsupervised Learning: Data pelatihan tidak berlabel. Sistem belajar tanpa "guru".
 
-Kriteria ini tidak eksklusif dan dapat digabungkan.
+        - Algoritma: Clustering (K-Means, DBSCAN, HCA) , Deteksi Anomali/Novelty (One-Class SVM, Isolation Forest) , Visualisasi & Pengurangan Dimensi (PCA, Kernel PCA, LLE, t-SNE) , Association Rule Learning (Apriori, Eclat).
+        - Contoh: Mengelompokkan pengunjung blog , algoritma visualisasi , pengurangan dimensi (menggabungkan fitur berkorelasi, ekstraksi fitur) , deteksi anomali (mendeteksi transaksi tidak biasa) , deteksi novelty (mendeteksi instance baru yang berbeda) , association rule learning (menemukan hubungan antar atribut dalam data besar).
 
-    Supervised/Unsupervised Learning: 
+    - Semisupervised Learning: Menangani data yang sebagian berlabel (banyak data tak berlabel, sedikit data berlabel).
+        - Contoh: Google Photos mengelompokkan wajah, pengguna memberi label nama.
+        - Seringkali kombinasi algoritma unsupervised dan supervised (misalnya, Deep Belief Networks).
 
-    Supervised Learning: Data pelatihan berisi solusi yang diinginkan (label).
+    - Reinforcement Learning (RL): Sistem pembelajaran (agen) mengamati lingkungan, memilih dan melakukan tindakan, dan menerima imbalan (atau hukuman). Tujuannya adalah mempelajari strategi (policy) terbaik untuk mendapatkan imbalan paling banyak dari waktu ke waktu.
+        - Contoh: Robot belajar berjalan, program AlphaGo.
 
-    Tugas umum: Klasifikasi (misalnya, filter spam) dan Regresi (memprediksi nilai numerik, misalnya, harga mobil).
+* Batch and Online Learning:
 
-Predictors: Fitur yang digunakan untuk prediksi.
+    - Batch Learning: Sistem tidak dapat belajar secara bertahap; harus dilatih menggunakan semua data yang tersedia (offline learning). Untuk mempelajari data baru, harus dilatih ulang dari awal pada dataset lengkap. Sederhana, tetapi memakan waktu dan sumber daya, tidak dapat beradaptasi dengan cepat, dan mungkin tidak mungkin untuk dataset yang sangat besar.
+    - Online Learning: Sistem dilatih secara bertahap dengan memasukkan instance data secara berurutan (tunggal atau dalam mini-batch). Setiap langkah pembelajaran cepat dan murah, memungkinkan adaptasi on-the-fly. Cocok untuk aliran data kontinu, sumber daya terbatas, dan dataset besar (out-of-core learning). Learning rate mengontrol seberapa cepat adaptasi terhadap data baru. Tantangan: Kinerja dapat menurun jika data buruk dimasukkan; memerlukan pemantauan ketat.
 
-Attribute vs Feature: Attribute adalah tipe data, feature adalah attribute + nilainya.
+* Instance-Based Versus Model-Based Learning:
 
-Algoritma: k-NN, Regresi Linear/Logistik, SVM, Decision Trees, Random Forests, Neural Networks.
+    - Berfokus pada generalisasi: kemampuan membuat prediksi yang baik pada instance baru.
+    - Instance-Based Learning: Sistem mempelajari contoh dengan menghafal, kemudian menggeneralisasi ke kasus baru menggunakan ukuran kesamaan untuk membandingkannya dengan contoh yang dipelajari. Contoh: k-Nearest Neighbors.
 
-Unsupervised Learning: Data pelatihan tidak berlabel. Sistem belajar tanpa "guru".
-
-    Algoritma: Clustering (K-Means, DBSCAN, HCA) , Deteksi Anomali/Novelty (One-Class SVM, Isolation Forest) , Visualisasi & Pengurangan Dimensi (PCA, Kernel PCA, LLE, t-SNE) , Association Rule Learning (Apriori, Eclat).
-
-Contoh: Mengelompokkan pengunjung blog , algoritma visualisasi , pengurangan dimensi (menggabungkan fitur berkorelasi, ekstraksi fitur) , deteksi anomali (mendeteksi transaksi tidak biasa) , deteksi novelty (mendeteksi instance baru yang berbeda) , association rule learning (menemukan hubungan antar atribut dalam data besar).
-
-Semisupervised Learning: Menangani data yang sebagian berlabel (banyak data tak berlabel, sedikit data berlabel).
-
-    Contoh: Google Photos mengelompokkan wajah, pengguna memberi label nama.
-
-Seringkali kombinasi algoritma unsupervised dan supervised (misalnya, Deep Belief Networks).
-
-Reinforcement Learning (RL): Sistem pembelajaran (agen) mengamati lingkungan, memilih dan melakukan tindakan, dan menerima imbalan (atau hukuman). Tujuannya adalah mempelajari strategi (policy) terbaik untuk mendapatkan imbalan paling banyak dari waktu ke waktu.
-
-    Contoh: Robot belajar berjalan, program AlphaGo.
-
-Batch and Online Learning:
-
-    Batch Learning: Sistem tidak dapat belajar secara bertahap; harus dilatih menggunakan semua data yang tersedia (offline learning). Untuk mempelajari data baru, harus dilatih ulang dari awal pada dataset lengkap. Sederhana, tetapi memakan waktu dan sumber daya, tidak dapat beradaptasi dengan cepat, dan mungkin tidak mungkin untuk dataset yang sangat besar.
-
-Online Learning: Sistem dilatih secara bertahap dengan memasukkan instance data secara berurutan (tunggal atau dalam mini-batch). Setiap langkah pembelajaran cepat dan murah, memungkinkan adaptasi on-the-fly. Cocok untuk aliran data kontinu, sumber daya terbatas, dan dataset besar (out-of-core learning). Learning rate mengontrol seberapa cepat adaptasi terhadap data baru. Tantangan: Kinerja dapat menurun jika data buruk dimasukkan; memerlukan pemantauan ketat.
-
-Instance-Based Versus Model-Based Learning:
-
-    Berfokus pada generalisasi: kemampuan membuat prediksi yang baik pada instance baru.
-
-Instance-Based Learning: Sistem mempelajari contoh dengan menghafal, kemudian menggeneralisasi ke kasus baru menggunakan ukuran kesamaan untuk membandingkannya dengan contoh yang dipelajari. Contoh: k-Nearest Neighbors.
-
-Model-Based Learning: Membangun model dari contoh-contoh, kemudian menggunakan model tersebut untuk membuat prediksi.
-
-    Langkah-langkah: Studi data , Pilih model (misalnya, model linear untuk kepuasan hidup vs. PDB) , Tentukan ukuran kinerja (fungsi utilitas/biaya) , Latih model (algoritma pembelajaran menemukan parameter model yang meminimalkan fungsi biaya) , Terapkan model untuk prediksi (inference) pada kasus baru.
-
-Menjelaskan parameter model (θ) dan pemilihan model vs pelatihan model.
-
-Memberikan contoh kode Python (Scikit-Learn) untuk Regresi Linear dan k-NN .
+    - Model-Based Learning: Membangun model dari contoh-contoh, kemudian menggunakan model tersebut untuk membuat prediksi.
+        - Langkah-langkah: Studi data , Pilih model (misalnya, model linear untuk kepuasan hidup vs. PDB) , Tentukan ukuran kinerja (fungsi utilitas/biaya) , Latih model (algoritma pembelajaran menemukan parameter model yang meminimalkan fungsi biaya) , Terapkan model untuk prediksi (inference) pada kasus baru.
+        - Menjelaskan parameter model (θ) dan pemilihan model vs pelatihan model.
+        - Memberikan contoh kode Python (Scikit-Learn) untuk Regresi Linear dan k-NN .
